@@ -47,7 +47,7 @@ def recuitSimule(etatInitial, temperatureInitiale, tauxRefroidissement, iter_max
     return etatCourant
 
 
-etat_init = etatInitial(16)
+etat_init = etatInitial(4)
 afficher(etat_init)
 print("Evaluation initiale:", evaluer(etat_init))
 
