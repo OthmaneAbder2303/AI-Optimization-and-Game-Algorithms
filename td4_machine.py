@@ -82,12 +82,12 @@ def croisement_guide(parent1, parent2):
 
         # Conflits si on met choix1 à la colonne `col`
         for c in range(col):
-            if enfant[c] == choix1: #or abs(col - c) == abs(choix1 - enfant[c]):
+            if enfant[c] == choix1:
                 conflits_choix1 += 1
 
         # Conflits si on met choix2 à la colonne `col`
         for c in range(col):
-            if enfant[c] == choix2: #or abs(col - c) == abs(choix2 - enfant[c]):
+            if enfant[c] == choix2:
                 conflits_choix2 += 1
 
         # Choix du meilleur
