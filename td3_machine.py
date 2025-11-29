@@ -54,4 +54,3 @@ print("Evaluation initiale:", evaluer(etat_init))
 etatFinal = recuitSimule(etat_init, temperatureInitiale=1000, tauxRefroidissement=0.95, iter_max=100)
 afficher(etatFinal)
 print("Evaluation finale:", evaluer(etatFinal))
-

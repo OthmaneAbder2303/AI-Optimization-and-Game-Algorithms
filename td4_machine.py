@@ -144,4 +144,3 @@ def algorithme_genetique(N, taille_population, nombre_generations, taux_mutation
 etatFinal = algorithme_genetique(N=16, taille_population=100, nombre_generations=1000, taux_mutation=0.03)
 afficher(etatFinal)
 print("Fitness finale:", fitness(etatFinal))
-
