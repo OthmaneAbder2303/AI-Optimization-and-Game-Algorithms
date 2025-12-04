@@ -88,7 +88,7 @@ plt.ylabel("Accuracy")
 plt.xticks(k_values)
 plt.legend()
 plt.grid()
-plt.show()
+plt.show()git 
 
 # standardscaler purpose
 # when focus on recall or precision
