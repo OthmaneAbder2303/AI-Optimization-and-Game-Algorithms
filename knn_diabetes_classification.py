@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.preprocessing import StandardScaler
 
 df = pd.read_csv("diabetes.csv")
 
@@ -44,11 +45,8 @@ print("Confusion Matrix:")
 print(conf_matrix)
 
 
-
-plt.figure(figsize=(10, 6))
 k_values = list(range(1, 21))
 accuracies = []
-
 for i in range(k_values[-1]):
     knn = KNeighborsClassifier(n_neighbors=i+1)
     knn.fit(x_train, y_train)
@@ -60,13 +58,31 @@ for i in range(k_values[-1]):
     print(conf_matrix)
     accuracies.append(accuracy)
 
-plt.plot(k_values, accuracies, marker='o')
+plt.plot(k_values, accuracies, marker='o', label='Without Scaling')
+
+
+scaler = StandardScaler()
+x_train_scaled = scaler.fit_transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+
+accuracies_scaled = []
+for i in range(k_values[-1]):
+    knn_scaled = KNeighborsClassifier(n_neighbors=i+1)
+    knn_scaled.fit(x_train_scaled, y_train) 
+    predictions = knn_scaled.predict(x_test_scaled)
+    accuracy = accuracy_score(y_test, predictions)
+    print(f"Accuracy for k={i+1} (scaled): {accuracy}")
+    conf_matrix = confusion_matrix(y_test, predictions)
+    print(f"Confusion Matrix for k={i+1} (scaled): ")
+    print(conf_matrix)
+    accuracies_scaled.append(accuracy)
+
+plt.plot(k_values, accuracies_scaled, marker='o', color='orange', label='With Scaling')
+
 plt.title("KNN Classifier Accuracy for Different k Values")
-plt.xlabel("Number of Neighbors (k)")
+plt.xlabel("K Value")
 plt.ylabel("Accuracy")
 plt.xticks(k_values)
+plt.legend()
 plt.grid()
 plt.show()
-
-
-    
