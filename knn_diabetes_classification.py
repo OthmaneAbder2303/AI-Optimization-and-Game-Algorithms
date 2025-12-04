@@ -62,8 +62,11 @@ plt.plot(k_values, accuracies, marker='o', label='Without Scaling')
 
 
 scaler = StandardScaler()
-x_train_scaled = scaler.fit_transform(x_train)
-x_test_scaled = scaler.transform(x_test)
+
+x_scaled = scaler.fit_transform(x)
+x_train_scaled, x_test_scaled, y_train, y_test = train_test_split(
+    x_scaled, y, test_size=0.3, random_state=42, stratify=y
+)   
 
 accuracies_scaled = []
 for i in range(k_values[-1]):
@@ -86,3 +89,6 @@ plt.xticks(k_values)
 plt.legend()
 plt.grid()
 plt.show()
+
+# standardscaler purpose
+# when focus on recall or precision
