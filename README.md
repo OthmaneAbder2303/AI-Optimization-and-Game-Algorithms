@@ -10,13 +10,15 @@ Il couvre des méthodes de **recherche**, **jeux**, **optimisation**, **apprenti
 
 ```
 .
-├── TP1/
-├── TP2/
-├── genetics.py
-├── sim_annealing.py
-├── regression_lineaire.py
-├── regression_polynomiale.py
-├── knn_diabetes_classification.py
+├── A-star/                     
+├── Alpha-Beta_Algorithm/      
+├── Dijkstra_A-star_for_sp/   
+├── genetics.py             
+├── sim_annealing.py          
+├── regression_lineaire.py     
+├── regression_polynomiale.py 
+├── knn_diabetes_classification.py 
+├── simplexe.ipynb
 ├── diabetes.csv
 ├── housing.csv
 ├── possum.csv
